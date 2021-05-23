@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.8.1'
+}
+
+group 'org.efftushkin.app'
+version '1.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'//Priority of test methods is ignored in 7.4.0 (https://github.com/cbeust/testng/issues/2170)
+    implementation group: 'io.qameta.allure', name: 'allure-gradle', version: '2.8.1'
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.13.0'
+}
+
+test {
+    useTestNG()
+    dependsOn cleanTest
+    systemProperties System.getProperties()
+    testLogging.showStandardStreams = true
+}
+
+allure {
+    version = '2.8.1'
+    autoconfigure = true
+
+    reportDir = file('build/allure-results')
+}
+
+task runTests(type: Test) {
+    ignoreFailures = true
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+    }
+
+    systemProperty 'allure.model.indentOutput', true
+    systemProperty 'allure.results.directory', '/allure-results'
+
+    testLogging.showStandardStreams = true
+}

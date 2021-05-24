@@ -22,9 +22,10 @@ Testing consists of 5 steps:
 5. Remove added computer (only if all previous tests are passed)
    
 # How to run
-1. Ensure current JDK is installed
-2. Install Opera (win64 version)
-3. Run:
+1. Windows 10 x 64 is needed
+2. Ensure JDK 8 is installed
+3. Install Opera (win64 version)
+4. Run:
    
         ./gradlew -i clean build 
         ./gradlew -i runTests   

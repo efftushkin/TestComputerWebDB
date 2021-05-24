@@ -5,16 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class AddPage {
-    final private WebDriver driver;
+    private final WebDriver driver;
 
-    final private String headerText = "Add a computer";
+    private final String headerText = "Add a computer";
 
-    final private By header = By.xpath("/html/body/section/h1");
-    final private By inputName = By.id("name");
-    final private By inputIntroduced = By.id("introduced");
-    final private By inputDiscontinued = By.id("discontinued");
-    final private By selectCompany = By.id("company");
-    final private By buttonCreate = By.xpath("//input[@class='btn primary']");
+    private final By header = By.xpath("/html/body/section/h1");
+    private final By inputName = By.id("name");
+    private final By inputIntroduced = By.id("introduced");
+    private final By inputDiscontinued = By.id("discontinued");
+    private final By selectCompany = By.id("company");
+    private final By buttonCreate = By.xpath("//input[@class='btn primary']");
 
     public AddPage(WebDriver driver) {
         this.driver = driver;

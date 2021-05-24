@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class RemovePage {
-    final private WebDriver driver;
+    private final WebDriver driver;
 
-    final private By buttonDeleteBy = By.xpath("//input[@class='btn danger']");
+    private final By buttonDeleteBy = By.xpath("//input[@class='btn danger']");
 
     public RemovePage(WebDriver driver) {
         this.driver = driver;

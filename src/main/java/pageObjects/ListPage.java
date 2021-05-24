@@ -7,18 +7,18 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class ListPage {
-    final private String URL = "http://computer-database.gatling.io/computers";
+    private final String URL = "http://computer-database.gatling.io/computers";
 
-    final private WebDriver driver;
+    private final WebDriver driver;
 
-    final private By headerBY = By.xpath("/html/body/section/h1");
-    final private By alertBy = By.xpath("//section[@id='main']//child::div[@class='alert-message warning']");
-    final private By searchBy = By.id("searchbox");
-    final private By buttonSearchBy = By.id("searchsubmit");
-    final private By buttonAddBy = By.id("add");
-    final private By namesBy = By.xpath("//tbody//child::tr//child::td//child::a");
-    final private By buttonNextBy = By.xpath("//section[@id='main']//ul//li[3]");
-    final private By hrefNextBy = By.xpath("//section[@id='main']//ul//li[3]/a");
+    private final By headerBY = By.xpath("/html/body/section/h1");
+    private final By alertBy = By.xpath("//section[@id='main']//child::div[@class='alert-message warning']");
+    private final By searchBy = By.id("searchbox");
+    private final By buttonSearchBy = By.id("searchsubmit");
+    private final By buttonAddBy = By.id("add");
+    private final By namesBy = By.xpath("//tbody//child::tr//child::td//child::a");
+    private final By buttonNextBy = By.xpath("//section[@id='main']//ul//li[3]");
+    private final By hrefNextBy = By.xpath("//section[@id='main']//ul//li[3]/a");
 
     public ListPage(WebDriver driver) {
         this.driver = driver;

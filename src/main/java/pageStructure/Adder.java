@@ -1,10 +1,10 @@
-package pageObjects;
+package pageStructure;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddPage {
+public class Adder {
     private final WebDriver driver;
 
     private final String headerText = "Add a computer";
@@ -16,7 +16,7 @@ public class AddPage {
     private final By selectCompany = By.id("company");
     private final By buttonCreate = By.xpath("//input[@class='btn primary']");
 
-    public AddPage(WebDriver driver) {
+    public Adder(WebDriver driver) {
         this.driver = driver;
     }
 

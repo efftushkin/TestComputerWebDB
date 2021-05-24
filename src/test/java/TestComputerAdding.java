@@ -2,8 +2,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
-import pageObjects.AddPage;
-import pageObjects.ListPage;
+import pageStructure.Adder;
+import pageStructure.ListPage;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,7 +12,7 @@ import java.util.UUID;
 public class TestComputerAdding {
     private WebDriver driver;
     private ListPage listPage;
-    private AddPage addPage;
+    private Adder adder;
     private String computerName;
 
     @BeforeClass
@@ -28,8 +28,8 @@ public class TestComputerAdding {
 
     @Test(priority = 0, groups = "add", description = "Button Add a new computer works")
     public void testOpenAddPage() {
-        addPage = listPage.addComputer();
-        Assert.assertTrue(addPage.checkHeader());
+        adder = listPage.addComputer();
+        Assert.assertTrue(adder.checkHeader());
     }
 
     @Test(priority = 1, groups = "add", description = "Button Create this computer works when all fields are filled")
@@ -39,7 +39,7 @@ public class TestComputerAdding {
         Calendar discontinuedDate = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-        addPage.createComputer(computerName, formatter.format(introducedDate.getTime()), formatter.format(discontinuedDate.getTime()), 10);
+        adder.createComputer(computerName, formatter.format(introducedDate.getTime()), formatter.format(discontinuedDate.getTime()), 10);
         Assert.assertTrue(listPage.checkHeader());
     }
 

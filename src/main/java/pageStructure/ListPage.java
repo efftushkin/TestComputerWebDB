@@ -1,4 +1,4 @@
-package pageObjects;
+package pageStructure;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,16 +22,16 @@ public class ListPage {
 
     public ListPage(WebDriver driver) {
         this.driver = driver;
-        init();
+        goHome();
     }
 
-    public void init() {
+    public void goHome() {
         driver.get(URL);
     }
 
-    public AddPage addComputer() {
+    public Adder addComputer() {
         driver.findElement(buttonAddBy).click();
-        return new AddPage(driver);
+        return new Adder(driver);
     }
 
     public boolean checkHeader() {
@@ -43,7 +43,7 @@ public class ListPage {
     }
 
     private boolean isComputerPresentOnPage(String computerName) {
-        for (; ; ) {
+        while (true) {
             List<WebElement> webElements = driver.findElements(namesBy);
 
             for (WebElement webElement : webElements) {
@@ -67,7 +67,7 @@ public class ListPage {
     }
 
     public boolean isComputerPresent(String computerName, boolean useSearch) {
-        init();
+        goHome();
 
         if (useSearch) {
             useSearch(computerName);
@@ -77,7 +77,7 @@ public class ListPage {
     }
 
     public boolean removeComputer(String computerName) {
-        init();
+        goHome();
 
         useSearch(computerName);
 
@@ -91,9 +91,9 @@ public class ListPage {
 
         driver.get(webElements.get(0).getAttribute("href"));
 
-        RemovePage removePage = new RemovePage(driver);
+        Remover remover = new Remover(driver);
 
-        removePage.removeComputer();
+        remover.removeComputer();
 
         return true;
     }

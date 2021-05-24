@@ -23,7 +23,8 @@ Testing consists of 5 steps:
    
 # How to run
 1. Ensure current JDK is installed
-2. Run:
+2. Install Opera (win64 version)
+3. Run:
    
         ./gradlew -i clean build 
         ./gradlew -i runTests   

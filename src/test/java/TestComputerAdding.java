@@ -1,5 +1,4 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.opera.OperaDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
 import pageStructure.Adder;
@@ -10,19 +9,15 @@ import java.util.Calendar;
 import java.util.UUID;
 
 public class TestComputerAdding {
-    private WebDriver driver;
+    private WebDriver webDriver;
     private ListPage listPage;
     private Adder adder;
     private String computerName;
 
     @BeforeClass
     public void Init() {
-        System.setProperty("webdriver.opera.driver", "src/test/resources/operadriver_win32/operadriver.exe");
-
-        driver = new OperaDriver();
-
-        listPage = new ListPage(driver);
-
+        webDriver = Driver.getWebDriver();
+        listPage = new ListPage(webDriver);
         computerName = UUID.randomUUID().toString();
     }
 
@@ -62,7 +57,8 @@ public class TestComputerAdding {
 
     @AfterClass
     public void Close() {
-        driver.close();
+        webDriver.close();
+        webDriver.quit();
     }
 
 }
